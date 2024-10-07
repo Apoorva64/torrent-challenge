@@ -1,17 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: torrent-downloader
   labels:
-    app: torrent-downloader
+    io.kompose.service: torrent-downloader
+  name: torrent-downloader
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: torrent-downloader
   template:
     metadata:
       labels:
-        app: torrent-downloader
+        io.kompose.service: torrent-downloader
     spec:
-      automountServiceAccountToken: false
       containers:
         - image: ghcr.io/apoorva64/torrent-challenge/api:7f117f14533fe38987bd31bd6692ca9b2fedebbf
           name: torrent-downloader
@@ -25,6 +27,7 @@ spec:
           env:
             - name: MAGNET
               value: "magnet:?xt=urn:btih:MQPJGACOOI2TXD5IXQDT3D4FK25IYULY&dn=Orangutan%20driving%20golf%20cart%20%5B10%20HOURS%5D.mp4&xl=100983812&tr=http%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce"
-  selector:
-    matchLabels:
-      app: torrent-downloader
+
+      restartPolicy: Always
+
+
