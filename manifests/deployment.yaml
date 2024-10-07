@@ -15,7 +15,7 @@ spec:
         io.kompose.service: torrent-downloader
     spec:
       containers:
-        - image: ghcr.io/apoorva64/torrent-challenge/api:7f117f14533fe38987bd31bd6692ca9b2fedebbf
+        - image: ghcr.io/apoorva64/torrent-challenge/api:b8d5a1364f821e958fa9cd1ecba244e9111e0f17
           name: torrent-downloader
           resources:
             requests:
