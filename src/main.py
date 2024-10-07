@@ -16,12 +16,15 @@ async def download_delete():
     # Delete the file after download
     shutil.rmtree('downloads/' + random_name)
 
-def main():
-    asyncio.run(download_delete())
+async def main():
+    while True:
+        print("Start Download")
+        await download_delete()
+
 
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())
 
 
 
