@@ -21,15 +21,7 @@ def main():
 
 
 if __name__ == '__main__':
-    import multiprocessing
-    multiprocessing.freeze_support()
-    processes = []
-    for i in range(10):
-        p = multiprocessing.Process(target=main)
-        processes.append(p)
-        p.start()
-    for p in processes:
-        p.join()
+    main()
 
 
 
