@@ -35,11 +35,3 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ steps.downcase.outputs.downcase }}/api:${{ github.sha }}, ghcr.io/${{ steps.downcase.outputs.downcase }}/api:${{ github.ref_name }}
-
-      - name: Build and push cache
-        uses: docker/build-push-action@v5
-        with:
-          platforms: linux/amd64,linux/arm64
-          push: true
-          context: ./nginx-cache
-          tags: ghcr.io/${{ steps.downcase.outputs.downcase }}/nginx-cache:${{ github.sha }}, ghcr.io/${{ steps.downcase.outputs.downcase }}/nginx-cache:${{ github.ref_name }}
